@@ -57,7 +57,6 @@ void ExpeditionHandler::Launch()
 		case UI::DISPLAY_EXPEDITIONS:
 		{
 			FileHandler::ReadFromFile(_expeditions);
-			system("cls");
 			UI::PrintExpeditions(_expeditions);
 			break;
 		}

@@ -9,10 +9,13 @@ void FileHandler::WriteToFile(Expedition* expedition)
 		if (!fout) throw std::ios_base::failure(errorMsg);
 
 		expedition->WriteToFile(fout);
+
+		fout.close();
 	}
 	catch (const std::ios_base::failure& e)
 	{
 		UI::PrintMsg(e.what());
+		
 	}
 	
 }
@@ -46,6 +49,8 @@ void FileHandler::ReadFromFile(SuperVector<Expedition*>& expeditions)
 				expeditions.PushBack(new SouthPoleExpedition(name, year, temperature));
 			}
 		}
+
+		fin.close();
 	}
 	catch (const std::ios_base::failure& e)
 	{
